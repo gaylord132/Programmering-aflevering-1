@@ -5,11 +5,24 @@
 float degreeToRadian(float);// Her er  protorypen
 int main(){
 
+    float A1,C1,a1,b1,c1;
+
+    A1=0.64577182324;
+    C1=1.4137166941;
+    a1=50;
+
+
+    printf("Hej, dette program udregne siden c\nDet her er besvarelsen paa foorste spoorgsmaal i opg 3");
+
+    c1 = a1*sin(C1)/sin(A1);
+
+    printf("\nSide c: %f\n", c1);
+
+
     float A,C,a,b,c;//variabler
 
-
-    printf("Hej, dette program udregne siden c i en vilkaarlig trekant\n");
-    printf("Hvad er din vinkel A?\n");
+    printf("\nHej, dette program udregne siden c i en vilkaarlig trekant\n");
+    printf("\nHvad er din vinkel A?\n");
     scanf("%f", &A);
 
     if (A <= 0)// if statement der sørger for at vinkel ikke kan være 0
