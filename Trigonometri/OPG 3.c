@@ -5,14 +5,14 @@
 float degreeToRadian(float);// Her er  protorypen
 int main(){
 
-    float A1,C1,a1,b1,c1;
+    float A1,C1,a1,b1,c1;//variabler for OPG 3 første spørgsmål
 
     A1=0.64577182324;
     C1=1.4137166941;
     a1=50;
 
 
-    printf("Hej, dette program udregne siden c\nDet her er besvarelsen paa foorste spoorgsmaal i opg 3");
+    printf("Hej, dette program udregne siden c\nDet her er besvarelsen paa foorste spoorgsmaal i opg 3");//Her udregnes første spørgsmål i opg 3
 
     c1 = a1*sin(C1)/sin(A1);
 
