@@ -52,6 +52,8 @@ int main()
         opgaveSyv();
     break;
     default:
+        printf("\n\t Error\n\nPlease choose a task between 1 and 7.\n");
+        Sleep(500);
         loading();
         main();
 
@@ -61,6 +63,7 @@ int main()
 
 void opgaveEt()
 {
+    printf("Denne opgave går ud på at regne arealet ud af en vilkårlig trekant med bruger-inputtede sider.\n");
     float a, b, c, areal, s;
     printf("siden a:\n");
     scanf("%f", &a);
@@ -74,13 +77,14 @@ void opgaveEt()
 
     areal = sqrt(s*(s-a)*(s-b)*(s-c));
 
-    printf("Areal af trekanten med siderne \n%f\n%f\n%f\ner\n%f", a, b, c, areal);
+    printf("Areal af trekanten med siderne \nsiden a: %f\nsiden b: %f\nsiden c: %f\ner\n%f", a, b, c, areal);
 
     next();
 }
 
 void opgaveTo()
 {
+    printf("Opgave 2 går ud på at udregne alle 3 vinkler i en vilkårlig trekant med bruger-inputtede sider.\n");
     //sider og vinkler dekleres
     float a, b, c, aA, bB, cC;
     //input fra brugeren
@@ -97,7 +101,7 @@ void opgaveTo()
     bB = acos((pow(a, 2) + pow(c, 2) - pow(b, 2))/(2*a*c));
     printf("Vinklen B: %f\n", radianToDegree(bB));
     cC = acos((pow(b, 2) + pow(a, 2) - pow(c, 2))/(2*b*a));
-    printf("Vinklen C: %f\n", radianToDegree(cC));
+    printf("Vinklen C: %f", radianToDegree(cC));
     next();
 }
 
@@ -110,7 +114,7 @@ void opgaveTre()
     a1=50;
 
 
-    printf("Hej, dette program udregne siden c\nDet her er besvarelsen paa foorste spoorgsmaal i opg 3");//Her udregnes første spørgsmål i opg 3
+    printf("Hej, dette program udregner siden c\nDet her er besvarelsen paa foorste spoorgsmaal 1 opgave 3");//Her udregnes første spørgsmål i opg 3
 
     c1 = a1*sin(C1)/sin(A1);
 
@@ -138,12 +142,12 @@ void opgaveTre()
         return 0;
     }
 
-    printf("Hvad er din side a?\n (skal indtastest i cm)\n");
+    printf("Hvor lang er siden a i cm?\n");
     scanf("%f", &a);
 
     if(a <= 0)// if statement der sørger for at siden ikke kan være 0
     {
-        printf("Siden burde ikke veere negativ under 0");
+        printf("Siden burde ikke vaere negativ under 0");
         return 0;
     }
 
@@ -154,11 +158,12 @@ void opgaveTre()
 
 
 
-    printf("Side c: %f cm", c);// print side c
+    printf("Siden c: %f cm", c);// print side c
     next();
 }
 void opgaveFire()
 {
+    printf("Denne opgave er i 2 dele den første hvor vi skal finde vinkel B ud fra hardcodede værdier. \nDen anden skal vinklen B igen findes bare med bruger-inputtede værdier.\nDel 1 med hardcodede værdier:\n");
     //DEL 1
     float a, b, c, aA, bB, cC;
     c = 30;
@@ -166,12 +171,12 @@ void opgaveFire()
     cC = 110;
     cC = degreeToRadian(cC);
     bB = asin(sin(cC)/c*b);
-    printf("Vinklen B for en vilkårlig trekant med bruger-indtastede mål:\n\n");
     printf("siden c: %f\n", c);
     printf("siden b: %f\n", b);
     printf("Vinklen C: %f\n", radianToDegree(cC));
     printf("\nVinklen B: %f\n\n", radianToDegree(bB));
     //DEL 2 med bruger-input
+    printf("Del 2 med bruger-inputtede værdier:\n");
     printf("Siden c:\n");
     scanf("%f", &c);
     printf("Siden b:\n");
@@ -188,13 +193,13 @@ void opgaveFire()
         printf("siden c: %f\n", c);
         printf("siden b: %f\n", b);
         printf("Vinklen C: %f\n", radianToDegree(cC));
-        printf("\nVinklen B: %f\n", bB);
+        printf("\nVinklen B: %f", bB);
 
     }
     else
     {
         printf("\nError\n");
-        printf("\nTry other numbers.\n");
+        printf("\nTry other numbers.");
 
     }
     next();
@@ -265,7 +270,7 @@ void opgaveFem()
 
     vinkel_B = 180-vinkel_A-vinkel_C;//Finder vinkel B
 
-    printf("\nVinkel A: %f\nVinkel B: %f\nVinkel C: %d\nSide   a: %f \n",vinkel_A,vinkel_B,vinkel_C, modstaende_katete);
+    printf("\nVinkel A: %f\nVinkel B: %f\nVinkel C: %d\nSiden  a: %f \n",vinkel_A,vinkel_B,vinkel_C, modstaende_katete);
 
     vinkelsum = vinkel_A + vinkel_B + vinkel_C;
     sidesum=modstaende_katete+hosliggende_katet+hypotenusen;
@@ -273,11 +278,11 @@ void opgaveFem()
     printf("\nVinkelsum: %f", vinkelsum);
     printf("\nSidesum: %f", sidesum);
     }
-
     next();
 }
 void opgaveSex()
 {
+    printf("I denne opgave udregne resterende sider og vinkler når det angives 2 vinkler og en side.\n");
     float a, b, c, aA, bB, cC;
     printf("siden a:\n");
     scanf("%f", &a);
@@ -288,12 +293,14 @@ void opgaveSex()
 
     cC = 180 - aA - bB;
     printf("%f\n", cC);
+    aA = degreeToRadian(aA);
+    bB = degreeToRadian(bB);
+    cC = degreeToRadian(cC);
+    b = a/sin(aA)*sin(bB);
+    c = a/sin(aA)*sin(cC);
 
-    b = a/aA*bB;
-    c = a/aA*cC;
-
-    printf("%f\n", b);
-    printf("%f\nc", c);
+    printf("siden b: %f\n", b);
+    printf("siden c: %f", c);
     next();
 }
 void opgaveSyv()
@@ -305,7 +312,7 @@ void opgaveSyv()
     side, T , s;//sider, areal T og den halve omkreds
 
     printf("Hej, det her program kan fortælle dig vinklerne og arealet i en lide sidet trekant.\n\n");//spørger efter sider
-    printf("Hvor lang er din side?\n");
+    printf("Hvor er en af siderne i trekanten?\n");
     scanf("%f", &side);
 
     s = (side*3)/2;//Formel for at finde den halve omkreds
@@ -313,14 +320,7 @@ void opgaveSyv()
     T = sqrt(s*(s-side)*(s-side)*(s-side));//Her udregnes arealet
 
     printf("\nHer er dit areal for din ligesidet trekant: %f\n", T);//Printer oplysninger ud (areal)
-    printf("\nVinkel A:%d\nVinkel B:%d\nVinkel C:%d\n", vinkel_A, vinkel_B, vinkel_C);//printer oplysninger ud (vinkler)
-    next();
-}
-void arrayTester()
-{
-    char* stringArray[] = {"nigga", "you", "not", "gay"};
-    printf("%s %s\n", stringArray[1], stringArray[3]);
-    printf("%s %s %s", stringArray[2], stringArray[1], stringArray[0]);
+    printf("\nVinkel A:%d\nVinkel B:%d\nVinkel C:%d", vinkel_A, vinkel_B, vinkel_C);//printer oplysninger ud (vinkler)
     next();
 }
 
@@ -338,7 +338,7 @@ void loading()
 
 void next()
 {
-    printf("\nTask completed.\n\n");
+    printf("\n\nTask completed.\n\n");
     main();
 }
 
