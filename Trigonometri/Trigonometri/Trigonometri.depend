@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1554379351 source:c:\users\jonas¨\desktop\programming\trigonometri\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<windows.h>
+
